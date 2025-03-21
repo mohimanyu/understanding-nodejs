@@ -1,0 +1,49 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+}
+
+main {
+    margin: 0 24px;
+}
+
+button {
+    padding: 4px 6px;
+    border-radius: 4px;
+    background-color: #539dd1;
+    cursor: pointer;
+    color: white;
+    border: 1px solid black;
+}
+
+.header_main {
+    height: 70px;
+    width: 100%;
+    background-color: bisque;
+}
+
+.header_nav_main {
+    color: black;
+}
+
+.header_nav_list {
+    display: flex;
+    padding: 22px 30px;
+    margin: 0;
+    list-style-type: none;
+    gap: 12px;
+}
+
+.header_nav_list_item {
+    font-size: 20px;
+}
+
+.header_nav_list_item_text {
+    text-decoration: none;
+}
+
+.active_nav {
+    font-weight: 600;
+}

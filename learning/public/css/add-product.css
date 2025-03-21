@@ -1,0 +1,9 @@
+.add_product_form {
+    display: flex;
+    justify-content: center;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    gap: 12px;
+    padding: 24px 0;
+    margin: 24px 0;
+}
