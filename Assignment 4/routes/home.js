@@ -2,8 +2,16 @@ const express = require("express");
 
 const router = express.Router();
 
+const data = [];
+
 router.get("/", (req, res) => {
-    res.render("home");
+    res.render("home", { pageTitle: "Home", path: "/" });
 });
 
-module.exports = router;
+router.post("/users", (req, res) => {
+    data.push(req.body.username);
+    res.redirect("/users");
+});
+
+exports.router = router;
+exports.usernames = data;
