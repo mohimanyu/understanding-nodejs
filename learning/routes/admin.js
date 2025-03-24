@@ -1,13 +1,18 @@
 const path = require("path");
 const express = require("express");
-const rootDir = require("../utils/path");
+// const rootDir = require("../utils/path");
+
+const productsController = require("../controllers/products");
 
 const router = express.Router();
 
-const data = [];
+// const data = [];
 
 // /admin/add-product => get
-router.get("/add-product", (req, res) => {
+router.get(
+    "/add-product",
+    productsController.getAddProduct
+    /*(req, res) => {
     // res.send(`
     //     <h1>In the 'Add Product' Page</h1>
     //     <form action="/admin/add-product" method="POST">
@@ -20,14 +25,19 @@ router.get("/add-product", (req, res) => {
         pageTitle: "Add Product",
         path: "/add-product",
         productCSS: true,
-    });
-});
+});}*/
+);
 
 // /admin/add-product => POST
-router.post("/add-product", (req, res) => {
-    data.push({ title: req.body.title });
-    res.redirect("/");
-});
+router.post(
+    "/add-product",
+    productsController.postAddProduct
+    // (req, res) => {
+    // data.push({ title: req.body.title });
+    // res.redirect("/");
+    // }
+);
 
-exports.router = router;
-exports.adminData = data;
+// exports.router = router;
+// exports.adminData = data;
+module.exports = router;

@@ -4,6 +4,7 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 // const expressHbs = require("express-handlebars");
+const errorController = require("./controllers/error");
 
 // custom routes
 const adminRoutes = require("./routes/admin");
@@ -34,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // adding custom css from public folder
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/admin", adminRoutes.router);
+app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 // app.use("/", (req, res) => {
@@ -43,13 +44,16 @@ app.use(shopRoutes);
 // });
 
 // handles all unknown paths
-app.use((req, res) => {
-    // res.status(404).sendFile(
-    //     path.join(__dirname, "views", "page-not-found.html")
-    // );
+app.use(
+    errorController.get404
+    //     (req, res) => {
+    //     // res.status(404).sendFile(
+    //     //     path.join(__dirname, "views", "page-not-found.html")
+    //     // );
 
-    res.render("404", { pageTitle: "404" });
-});
+    //     res.render("404", { pageTitle: "404" });
+    // }
+);
 
 // const server = http.createServer(app);
 
